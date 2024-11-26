@@ -49,8 +49,8 @@ export default function ParkedDomainPage() {
     <div className="h-screen w-full bg-black">
       <Canvas
         camera={{ position: [0, 0, 10], fov: 75 }}
-        frameloop="demand"
         dpr={dpr}
+        gl={{ alpha: false, antialias: true }}
       >
         <PerformanceMonitor
           onIncline={() => setDpr(2)}
@@ -76,7 +76,7 @@ export default function ParkedDomainPage() {
               fontSize={0.8}
               position={[0, 1, 0]}
               color="white"
-              material-toneMapped={true}
+              material-toneMapped={false}
               anchorY="bottom"
             >
               parked by datagutt
