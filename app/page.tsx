@@ -11,7 +11,9 @@ function SmallCloud({ position }: { position: [number, number, number] }) {
       position={position}
       opacity={0.7}
       speed={0.4}
-      scale={2}
+      // @ts-expect-error missing prop
+      width={2}
+      depth={0.5}
       segments={20}
       color="#E5F3FD"
     />
@@ -24,7 +26,10 @@ function LargeCloud({ position }: { position: [number, number, number] }) {
       position={position}
       opacity={0.8}
       speed={0.3}
-      scale={6}
+      // @ts-expect-error missing prop
+      width={6}
+      depth={1.5}
+      segments={40}
       color="#F5FBFF"
     />
   );
