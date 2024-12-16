@@ -19,10 +19,11 @@ export default async function RootLayout({
   const headersList = await headers();
   const domain = headersList.get("host");
   return (
-    <PlausibleProvider domain={domain}>
-      <html lang="en">
-        <body className={inter.className}>{children}</body>
-      </html>
-    </PlausibleProvider>
+    <html lang="en">
+      <head>
+        <PlausibleProvider domain={domain} />
+      </head>
+      <body className={inter.className}>{children}</body>
+    </html>
   );
 }
