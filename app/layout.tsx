@@ -1,22 +1,28 @@
-import './globals.css'
-import { Inter } from 'next/font/google'
+import "./globals.css";
+import { Inter } from "next/font/google";
 
-const inter = Inter({ subsets: ['latin'] })
+import PlausibleProvider from "next-plausible";
+import { headers } from "next/headers";
+
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: 'Parked by datagutt',
-  description: 'This domain is parked by datagutt',
-}
+  title: "Parked by datagutt",
+  description: "This domain is parked by datagutt",
+};
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
+  const headersList = await headers();
+  const domain = headersList.get("host");
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
-    </html>
-  )
+    <PlausibleProvider domain={domain}>
+      <html lang="en">
+        <body className={inter.className}>{children}</body>
+      </html>
+    </PlausibleProvider>
+  );
 }
-
