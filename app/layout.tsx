@@ -21,7 +21,7 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <head>
-        <PlausibleProvider domain={domain} />
+        <PlausibleProvider domain={domain as string} />
       </head>
       <body className={inter.className}>{children}</body>
     </html>
